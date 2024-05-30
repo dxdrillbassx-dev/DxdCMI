@@ -1,0 +1,40 @@
+name: CMILike
+version: 1.2
+main: com.example.dxdcmi.Main
+api-version: 1.18
+commands:
+  addhome:
+    description: Adds a new home location
+    usage: /addhome <name>
+  home:
+    description: Teleports you to a specified home location
+    usage: /home <name>
+  delhome:
+    description: Removes a specified home location
+    usage: /delhome <name>
+  listhomes:
+    description: Lists all your home locations
+    usage: /listhomes
+  spawn:
+    description: Teleports you to the spawn location
+  broadcast:
+    description: Broadcasts a message to all players
+    usage: /broadcast <message>
+  reloadconfig:
+    description: Reloads the configuration file
+    usage: /reloadconfig
+  balance:
+    description: Shows your balance or the balance of another player
+    usage: /balance [player]
+  pay:
+    description: Transfers money to another player
+    usage: /pay <player> <amount>
+  give:
+    description: Gives money to another player (admin only)
+    usage: /give <player> <amount>
+  setbalance:
+    description: Sets the balance of another player (admin only)
+    usage: /setbalance <player> <amount>
+  shop:
+    description: Opens the shop inventory
+    usage: /shop

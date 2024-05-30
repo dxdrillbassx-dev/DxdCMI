@@ -1,0 +1,13 @@
+com\example\dxdcmi\HomeCommand.class
+com\example\dxdcmi\Main.class
+com\example\dxdcmi\DelHomeCommand.class
+com\example\dxdcmi\SetBalanceCommand.class
+com\example\dxdcmi\BalanceCommand.class
+com\example\dxdcmi\AddHomeCommand.class
+com\example\dxdcmi\BroadcastCommand.class
+com\example\dxdcmi\PayCommand.class
+com\example\dxdcmi\ReloadConfigCommand.class
+com\example\dxdcmi\ShopCommand.class
+com\example\dxdcmi\ListHomesCommand.class
+com\example\dxdcmi\GiveCommand.class
+com\example\dxdcmi\SpawnCommand.class
