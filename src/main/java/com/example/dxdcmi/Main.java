@@ -1,5 +1,6 @@
 package com.example.dxdcmi;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -60,20 +61,21 @@ public class Main extends JavaPlugin {
     public List<Location> getHomeLocations(Player player) {
         List<Location> homeLocations = new ArrayList<>();
         String playerName = player.getName(); // Получаем имя игрока
-        Set<String> keys = config.getConfigurationSection("homes." + playerName).getKeys(false);
+        var section = config.getConfigurationSection("homes." + playerName);
 
-        for (String key : keys) {
-            double x = config.getDouble("homes." + playerName + "." + key + ".x");
-            double y = config.getDouble("homes." + playerName + "." + key + ".y");
-            double z = config.getDouble("homes." + playerName + "." + key + ".z");
-            float yaw = (float) config.getDouble("homes." + playerName + "." + key + ".yaw");
-            float pitch = (float) config.getDouble("homes." + playerName + "." + key + ".pitch");
-            String worldName = config.getString("homes." + playerName + "." + key + ".world");
-
-            Location location = new Location(getServer().getWorld(worldName), x, y, z, yaw, pitch);
-            homeLocations.add(location);
-        }
-
+        if (section != null)
+            for (String key : section.getKeys(false)) {
+                var homeSection = section.getConfigurationSection(key);
+                if (homeSection != null)
+                    homeLocations.add(new Location(
+                            Bukkit.getWorld(homeSection.getString("world", "world")),
+                            homeSection.getDouble("x", 0D),
+                            homeSection.getDouble("y", 0D),
+                            homeSection.getDouble("z", 0D),
+                            (float) homeSection.getDouble("yaw"),
+                            (float) homeSection.getDouble("pitch")
+                    ));
+            }
         return homeLocations;
     }
 }
